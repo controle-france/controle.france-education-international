@@ -57,7 +57,7 @@ export default function Home() {
 
   const [date, setDate] = useState(null);
   const [captchaText, setCaptchaText] = useState('');
-  const [sessionNumber, setSessionNumber] = useState('');
+  const [sessionNumber, setSessionNumber] = useState('12345678');
 
   const [startDate, setStartDate] = useState(new Date());
 
@@ -83,13 +83,10 @@ export default function Home() {
     setValue('sessionNumber', sessionNumber); // Définit sessionNumber
     setValue('startDate', startDate); // Définit startDate
   }, [setValue, sessionNumber, startDate]);
-  const albert = "1234567"
-  sessionNumber=albert
-  const daten ="12-09-2024"
 
-  //data.sessionNumber
+
    const onSubmit = (data) => {
-    if (parseInt(data.captcha, 10) === captchaText.sum && albert  && daten) {
+    if (parseInt(data.captcha, 10) === captchaText.sum && data.sessionNumber && startDate) {
       router.push('/page2'); // Remplacez '/nextPage' par le chemin réel de votre page
     } else {
       alert('Captcha, numéro de cession ou date incorrect');
